@@ -8,4 +8,12 @@ The text content of Linux Journey has been made free to modify and distribute. F
 
 ## It's a fork !
 
-As said above, all the courses content are under [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/). The purpose of this for is to parse everything into an XML schema so that we could integrate the contents into another learning plateform.
+As the courses content are under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/), this fork aims to parse the repository lessons in order to produce an XML schema that will be integrated into another learning plateform.
+
+## Parser requirements
+
+* Creating the HTML from the markdown : [python-markdown2](https://github.com/trentm/python-markdown2)
+* Parsing the HTML : [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+#### Install the requirements
+```pip install -r parser/requirements.txt```
