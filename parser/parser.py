@@ -5,12 +5,15 @@ from os.path import isfile, isdir, join
 from bs4 import BeautifulSoup
 
 
-def HTMLtoXMLparser(html):
+def HTMLtoXMLparser(path,html):
     """
     Will parse the received html to a proper and valid XML
     """
     soup = BeautifulSoup(html, features='lxml')
-    print(soup.prettify)
+    print(soup.prettify())
+    f= open("data/lesson_example.xml","w+")
+    f.write(str(soup.prettify()))
+    f.close()
     # soup = BeautifulSoup()
 
 def getEnglishLessons(path):
@@ -25,14 +28,18 @@ def getEnglishLessons(path):
         lessons = [f for f in listdir(path+lesson_name) if isfile(join(path+lesson_name, f))]
         for lesson_part in lessons:
             html = markdown2.markdown_path(path+lesson_name+"/"+lesson_part)
-            HTMLtoXMLparser(html)
+            HTMLtoXMLparser(path,html)
         print("------")
-    return(True)
+        break #to parse only one time : only used to test
+    # return(True)
 
 
 def main(argv):
     ## Path variables
-    based_path="/home/zorro/GI04/TX/TX-linuxjourney/linuxjourney/lessons/locales/"
+    ### Easier for Alexis to run python code directly from atom
+    # based_path="/home/zorro/GI04/TX/TX-linuxjourney/linuxjourney/lessons/locales/"
+    ### Supposed path used
+    based_path="../lessons/locales/"
     english_lessons="en_english/"
     french_lessons="en_french/"
 
